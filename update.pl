@@ -12,7 +12,7 @@ sub emailVars
         my $fromAddress = 'me@jordanmcgilvray.com';
         my $toAddress = 'jordanjm@gmail.com';
         my $hostName = getHostName();
-        my $emailSubject = "Updates Available for $hostName.";
+        my $emailSubject = "Updates Available for $hostName on $(date +%m-%d-%Y).";
         my $numOfPackages = 0;
         my $updatesAvailable = "";
         my $emailMessage = "";
