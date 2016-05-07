@@ -5,6 +5,7 @@ use Email::Simple;
 use Email::Sender::Simple qw(sendmail);
 use Email::Simple::Creator;
 use Email::MIME;
+use POSIX qw(strftime);
   
 #Place to set the variablbles for the script
 sub emailVars
@@ -12,7 +13,8 @@ sub emailVars
         my $fromAddress = 'me@jordanmcgilvray.com';
         my $toAddress = 'jordanjm@gmail.com';
         my $hostName = getHostName();
-        my $emailSubject = "Updates Available for $hostName on $(date +%m-%d-%Y).";
+        my $dateString = strftime "%A-%B-%d-%Y-%R", localtime;
+        my $emailSubject = "Updates Available for $hostName on $dateString.";
         my $numOfPackages = 0;
         my $updatesAvailable = "";
         my $emailMessage = "";
